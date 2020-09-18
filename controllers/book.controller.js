@@ -14,3 +14,10 @@ exports.book_create = (req, res) => {
     res.send("Book created successfully!");
   });
 };
+
+exports.book_details = (req, res) => {
+  Book.findById(req.params.id, (err, book) => {
+    if (err) return next(err);
+    res.send(book);
+  });
+};
