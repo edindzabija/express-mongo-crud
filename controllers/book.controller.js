@@ -35,3 +35,10 @@ exports.book_update = (req, res) => {
     res.send("Book Udpated.");
   });
 };
+
+exports.book_delete = (req, res) => {
+  Book.findByIdAndRemove(req.params.id, (err) => {
+    if (err) return next(err);
+    res.send("Book Deleted");
+  });
+};
